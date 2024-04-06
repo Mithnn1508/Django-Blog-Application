@@ -1,0 +1,111 @@
+RECOMMEND TO RUN ON POSTMAN
+
+# APP1 - userProfile curl's
+
+REGISTER-
+    curl --location 'http://127.0.0.1:8000/api/profile/register' \
+    --header 'Content-Type: application/json' \
+    --data '{
+        "username":"Mithun1508",
+        "password":"Mith",
+        "confirm_password:"Mith"
+    }'
+
+LOGIN -
+    curl --location 'http://127.0.0.1:8000/api/profile/login' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMjI2NDUyLCJpYXQiOjE3MTIyMjYxNTIsImp0aSI6ImIwMWZjZjI3YmRhNDQ2Y2M5Njk2YmU3NTE2ZGMyMjQyIiwidXNlcl9pZCI6M30.d1Oysoe3awQSg9ohDcrRsr1BUEaOAIfXLmA4UYf9sqc' \
+    --data '{
+        "username":"Mithun1508",
+        "password":"Mith"
+    }'
+
+
+## APP2 - BLOGAPP
+
+FOR POSTS
+    POST-REQUEST -
+            curl --location 'http://127.0.0.1:8000/api/blog/posts/' \
+                --header 'Content-Type: application/json' \
+                --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMzA3NTc3LCJpYXQiOjE3MTIzMDAzNzcsImp0aSI6IjAyYTIxZWFlMGQyNzRkZjBiMGU1MTYyYWY3OWRkM2NiIiwidXNlcl9pZCI6M30.j0iZOVd-bu1SHYN1OpIFzlEwTu40OQCPMxDN0IirqEc' \
+                --data '{
+                    "content":"writing for testing fdsfsd blog post api updated",
+                    "title":"fivt-blog"
+                }'
+
+    GET - REQUEST -
+            curl --location 'http://127.0.0.1:8000/api/blog/posts/?page=1' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMzA3NTc3LCJpYXQiOjE3MTIzMDAzNzcsImp0aSI6IjAyYTIxZWFlMGQyNzRkZjBiMGU1MTYyYWY3OWRkM2NiIiwidXNlcl9pZCI6M30.j0iZOVd-bu1SHYN1OpIFzlEwTu40OQCPMxDN0IirqEc' \
+            --data ''
+
+
+# FOR COMMENTS
+POST REQUEST -
+        curl --location 'http://127.0.0.1:8000/api/blog/post/1/comments' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMzExNzEzLCJpYXQiOjE3MTIzMDQ1MTMsImp0aSI6ImIwYTc4YTE5ZjI4NzQ4ZTA5MmJkZTJkZTdjNTgzMjE2IiwidXNlcl9pZCI6NH0.rcUwxkUfbicnd2AzNZPgzDNKp7ZoI9E1tHl9x2XmMWI' \
+--data '{
+    "content":"writing for testing first blog postfdsfsd api"
+}'
+
+GET REQUEST -
+
+    curl --location --request GET 'http://127.0.0.1:8000/api/blog/post/1/comments' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMzExNzEzLCJpYXQiOjE3MTIzMDQ1MTMsImp0aSI6ImIwYTc4YTE5ZjI4NzQ4ZTA5MmJkZTJkZTdjNTgzMjE2IiwidXNlcl9pZCI6NH0.rcUwxkUfbicnd2AzNZPgzDNKp7ZoI9E1tHl9x2XmMWI' \
+
+
+
+FOR INDIVIDUAL UPDATE , DELETE AND GET - POST-MODEL
+
+PUT REQUEST -
+    curl --location --request PUT 'http://127.0.0.1:8000/api/blog/post/1' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMzIzOTg4LCJpYXQiOjE3MTIzMTY3ODgsImp0aSI6Ijk0Zjc1MjIxN2Y5MTRkYWFhYTM3OWYyZDZiODk4YTMwIiwidXNlcl9pZCI6NH0.LQTGQPSAnEqhrxEtGTdWtErFTL2Lf7-9K21iV3CJqHU' \
+--data '{
+    "content":"writing for testing first blog post api updated"
+}'
+
+DELETE REQUEST
+
+    curl --location --request DELETE 'http://127.0.0.1:8000/api/blog/post/2' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMzIzOTg4LCJpYXQiOjE3MTIzMTY3ODgsImp0aSI6Ijk0Zjc1MjIxN2Y5MTRkYWFhYTM3OWYyZDZiODk4YTMwIiwidXNlcl9pZCI6NH0.LQTGQPSAnEqhrxEtGTdWtErFTL2Lf7-9K21iV3CJqHU' \
+--data ''
+
+GET REQUEST -
+
+    curl --location 'http://127.0.0.1:8000/api/blog/post/1' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMzIzOTg4LCJpYXQiOjE3MTIzMTY3ODgsImp0aSI6Ijk0Zjc1MjIxN2Y5MTRkYWFhYTM3OWYyZDZiODk4YTMwIiwidXNlcl9pZCI6NH0.LQTGQPSAnEqhrxEtGTdWtErFTL2Lf7-9K21iV3CJqHU' \
+--data ''
+
+
+#FOR INDIVIDUAL COMMENTS (UPDATE,GET AND DELETE)
+
+PUT -
+    curl --location --request PUT 'http://127.0.0.1:8000/api/blog/comment/1' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMzIzOTg4LCJpYXQiOjE3MTIzMTY3ODgsImp0aSI6Ijk0Zjc1MjIxN2Y5MTRkYWFhYTM3OWYyZDZiODk4YTMwIiwidXNlcl9pZCI6NH0.LQTGQPSAnEqhrxEtGTdWtErFTL2Lf7-9K21iV3CJqHU' \
+--data '{
+    "content":"change one more time"
+}'
+
+GET
+curl --location --request GET 'http://127.0.0.1:8000/api/blog/comment/1' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMzIzOTg4LCJpYXQiOjE3MTIzMTY3ODgsImp0aSI6Ijk0Zjc1MjIxN2Y5MTRkYWFhYTM3OWYyZDZiODk4YTMwIiwidXNlcl9pZCI6NH0.LQTGQPSAnEqhrxEtGTdWtErFTL2Lf7-9K21iV3CJqHU' \
+
+
+DELETE
+
+curl --location --request DELETE 'http://127.0.0.1:8000/api/blog/comment/1' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMzIzOTg4LCJpYXQiOjE3MTIzMTY3ODgsImp0aSI6Ijk0Zjc1MjIxN2Y5MTRkYWFhYTM3OWYyZDZiODk4YTMwIiwidXNlcl9pZCI6NH0.LQTGQPSAnEqhrxEtGTdWtErFTL2Lf7-9K21iV3CJqHU' \
+
+
+#FOR LIKE
+
+POST
+
+curl --location 'http://127.0.0.1:8000/api/blog/post/1/like' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyMzExNzEzLCJpYXQiOjE3MTIzMDQ1MTMsImp0aSI6ImIwYTc4YTE5ZjI4NzQ4ZTA5MmJkZTJkZTdjNTgzMjE2IiwidXNlcl9pZCI6NH0.rcUwxkUfbicnd2AzNZPgzDNKp7ZoI9E1tHl9x2XmMWI' \
