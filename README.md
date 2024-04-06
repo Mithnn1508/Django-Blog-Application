@@ -70,3 +70,4 @@
 ### OR USER CAN DIRECTLY IMPORT DJANGO-BLOG APP.postman_collection.json in Postman ###
 
 # Django-Blog-Application
+# Django-Blog-Application
