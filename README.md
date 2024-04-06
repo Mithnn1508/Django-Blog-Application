@@ -80,3 +80,9 @@ Endpoint: http://127.0.0.1:8000/api/blog/post/<post_id>/like
 Output: Returns like counts and an array containing user IDs.
 
 For testing purposes, you can use the provided cURL commands in "test_curl.txt" or directly import the Postman collection file "Django-Blog-Application.postman_collection.json" into Postman.
+
+![api profile register ](https://github.com/Mithnn1508/Django-Blog-Application/assets/166194883/8956fd78-edfb-4c84-8334-415fbef9266d)
+![api posts blog posts ](https://github.com/Mithnn1508/Django-Blog-Application/assets/166194883/f408a7c1-6756-4126-ab13-cda97e8eb286)
+![profile login ](https://github.com/Mithnn1508/Django-Blog-Application/assets/166194883/9b13e861-fc14-4638-950a-7d1cad83c0a0)
+![comments ](https://github.com/Mithnn1508/Django-Blog-Application/assets/166194883/d0d88e08-f030-4467-b6e7-27370bc53f77)
+![Like](https://github.com/Mithnn1508/Django-Blog-Application/assets/166194883/c74648b5-7f69-4b4f-b5c2-5ee3a0288c69)
