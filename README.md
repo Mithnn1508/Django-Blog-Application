@@ -1,73 +1,82 @@
-# BLOG APPLICATION USING DJANGO REST FRAMEWORK 
+# DJANGO-BLOG-APPLICATION
 
-### SETUP ###
-    -  CREATE VIRTUAL ENVIROMENT USING - 
-            python -m venv env
-            activate virtualenv- Scripts/activate (for windows)
-                                 source bin/activate(Linux)
+## Setup
 
-    STEP2 - 
-        CLONE FROM GITHUB OR DOWNLOAD ZIP
-        - NAVIGATE TO BLOG APPLICATION USING TERMINAL
-        - RUN COMMAND TO INSTALL REQUIREMENTS
-                pip install -r requirements.txt
-    
-### RUN MIGRATIONS ###
-    run command to migrate database
-        - python manage.py migrate
+## 1 Create a Virtual Environment:
 
-### DETAILS AND API DESCRIPTIONS ###
+Execute the following command to create a virtual environment:
 
-    -- PROJECT CONTAIN TWO APP 
-        1 - userProfile - for authentication and profile 
-        2-  blogApp - contains Posts and Comments model 
+python -m venv env
+Activate the virtual environment:
 
-    -- Authentications is done using jwt token based authentications
+For Windows:
 
-## APP1 - userProfile api's
+env\Scripts\activate
 
-    -- REGISTER:(POST REQUEST)
-        http://127.0.0.1:8000/api/profile/register 
-    
-    -- LOGIN:
-        http://127.0.0.1:8000/api/profile/login
+For Linux:
+source env/bin/activate
 
-        OUTPUT- IT GIVES TWO VALUES ONE IS ACCESS TOKEN AND ANOTHER IS REFERESH TOKEN
-        // WITHOUT ACCESS TOKEN USER NOT ABLE TO ACCESS ANY API'S
+## 2 Clone the Repository or Download ZIP:
 
-    -- REFERESH : 
+2 Clone the repository from GitHub or download the ZIP file.
+Navigate to the blog application directory using the terminal.
 
-## APP2 : blogApp api's
+## 3 Install Requirements:
 
-    1- Fetching Posts and create new posts(GET and POST requests)
-     # page parameter is used for pagination (applicatble in GET request)
-        
-        http://127.0.0.1:8000/api/blog/posts/?page=2
+Run the following command to install the required dependencies:
 
-     #output contains details with likes and likes count
+pip install -r requirements.txt
 
-    2- for fetching comments of given post(GET and POST request)
+## 4 Run Migrations:
 
-        http://127.0.0.1:8000/api/blog/post/<post_id>/comments
-    
-    3 - for update ,delete and getting single POST api url 
+Apply database migrations by executing:
 
-        http://127.0.0.1:8000/api/blog/post/<post_id>
+python manage.py migrate
 
-    4 - for update ,delete and getting single "COMMENT" api url
+## Project Overview
+The project consists of two primary apps:
 
-        http://127.0.0.1:8000/api/blog/comment/<comment_id>
+1 userProfile: This app handles user authentication and profile management.
 
-    5 - LIKE ON POSTS 
+2 blogApp: Contains models for Posts and Comments.
 
-        http://127.0.0.1:8000/api/blog/post/<post_id>/like
-
-        OUTPUT - returns like_counts and like arrays contains user's id
+Authentication is implemented using JWT token-based authentication.
 
 
-### FOR TESTING THE CURL IS PROVIDED IN "test_curl.txt" ###
+## userProfile APIs
+1 Register (POST):
 
-### OR USER CAN DIRECTLY IMPORT DJANGO-BLOG APP.postman_collection.json in Postman ###
+Endpoint: http://127.0.0.1:8000/api/profile/register
 
-# Django-Blog-Application
-# Django-Blog-Application
+2 Login:
+Endpoint: http://127.0.0.1:8000/api/profile/login
+Output: Upon successful login, it provides an access token and a refresh token. The access token is required to access other APIs.
+
+3 Refresh Token:
+Endpoint for token refresh.
+
+## blogApp APIs
+1 Fetching Posts and Creating New Posts (GET and POST):
+
+Endpoint: http://127.0.0.1:8000/api/blog/posts/?page=2
+Pagination: Utilize the page parameter for pagination.
+Output: Provides post details along with likes and like counts.
+
+2 Fetching Comments of a Post (GET and POST):
+
+Endpoint: http://127.0.0.1:8000/api/blog/post/<post_id>/comments
+
+3 Update, Delete, and Get Single Post (GET, PUT, DELETE):
+
+Endpoint: http://127.0.0.1:8000/api/blog/post/<post_id>
+Update, Delete, and Get Single Comment (GET, PUT, DELETE):
+
+Endpoint: http://127.0.0.1:8000/api/blog/comment/<comment_id>
+
+5 Like on Posts (POST):
+
+Endpoint: http://127.0.0.1:8000/api/blog/post/<post_id>/like
+
+Output: Returns like counts and an array containing user IDs.
+
+For testing purposes, you can use the provided cURL commands in "test_curl.txt" or directly import the Postman collection file "Django-Blog-Application.postman_collection.json" into Postman.
